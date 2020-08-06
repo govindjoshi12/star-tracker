@@ -1,0 +1,42 @@
+/* Star Modal Styling */
+#star-container {
+    display: flex;
+}
+
+.star {
+    margin: 20px;
+}
+
+.star-modal {
+    display: none;
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4);
+}
+
+.star-modal-content {
+    background-color: #fefefe;
+    margin: auto; 
+    padding: 0;
+    border: 1px solid #888;
+    width: 30vw;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.star-modal-header, .star-modal-footer {
+    color: white;
+    padding: 2px 16px;
+    text-align: center;
+}
+
+.fa-star:hover, .fa-star:focus {
+    opacity: 0.5;
+    text-decoration: none;
+    cursor: pointer;
+}

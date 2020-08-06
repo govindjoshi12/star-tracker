@@ -1,9 +1,11 @@
 <html>
     <head>
         <title>Star Tracker</title>
+        <script src="https://kit.fontawesome.com/aa049954cc.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
+        <div id="star-container">
         <?php
             date_default_timezone_set("UTC");
             
@@ -30,15 +32,28 @@
                 $date = strtotime($row["date"]);
                 $date = date('l jS, F Y, h:i:s A', $date);
 
-                echo "<div>";
-                echo "ID: " . $id . "<br>";
-                echo "Subject: " . $subject . "<br>";
-                echo "Color: " . $color . "<br>";
-                echo "Details: " . $details . "<br>";
-                echo "Date: " . $date . "<br><br>";
+                echo "<div class='star'>";
+                    echo "<span style='color: " . $color . "' onclick='openStarModal(event);'>";
+                        echo "<i class='far fa-star fa-10x'></i>";
+                    echo "</span>";
+                    echo "<div class='star-modal'>";
+                        echo "<div class='star-modal-content'>";
+                            echo "<div class='star-modal-header' style='background-color: " . $color . ";'>";
+                                echo $subject;
+                            echo "</div>";
+                            echo "ID: " . $id . "<br>";
+                            echo "Color: " . $color . "<br>";
+                            echo "Subject: " . $subject . "<br>";
+                            echo "Details: " . $details . "<br>";
+                            echo "Date: " . $date . "<br><br>";
+                            echo "<div class='star-modal-footer' style='background-color: " . $color . "'>";
+                            echo "</div>";
+                        echo "</div>";
+                    echo "</div>";
                 echo "</div>";
             }
         ?>
+        </div>
         <button id="modal-btn">Open</button>
         <div id="modal">
             <div id="modal-content">
@@ -76,4 +91,5 @@
         </div>
     </body>
     <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/stars.css">
 </html>
