@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Star Tracker</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <button id="modal-btn">Open</button>
+        <div id="modal">
+
+            <div id="modal-content">
+                <span id="close">&times;</span>
+                <div id="modal-header">
+                    Modal Header
+                </div>
+                <div id="modal-body">
+                    <form method="GET">
+                        <label>Subject: </label>
+                        <select id="subjet" name="subject-choices">
+                            <option value="math">Math</option>
+                            <option value="english">English</option>
+                        </select><br>
+                        <label>Color: </label>
+                        <select id="color" name="color-choices">
+                            <option value="red">Red</option>
+                            <option value="orange">Orange</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="indigo">Indigo</option>
+                        </select><br>
+                        <label>Details: </label>
+                        <input type="text" text="Max 140 characters..."><br>
+                        <label>Link: </label>
+                        <input type="url"><br>
+                        <button type="submit">Add Star</button>
+                    </form>
+                </div>
+                <div id="modal-footer">
+                    Modal Footer
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./js/script.js"></script>
+</html>
