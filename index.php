@@ -7,11 +7,15 @@
     <body>
         <div id="star-container">
         <?php
+            if(isset($_GET["deleted_star"])) {
+                echo "<strong style='color: purple'>Star Deleted!</strong>";
+            }
+
             date_default_timezone_set("UTC");
             
             $server = "localhost";
             $user = "root";
-            $pass = "";
+            $pass = "caffreyNeal$12";
             $db = "star-tracker";
 
             $conn = new mysqli($server, $user, $pass, $db);
@@ -34,7 +38,7 @@
 
                 echo "<div class='star'>";
                     echo "<span style='color: " . $color . "' onclick='openStarModal(event);'>";
-                        echo "<i class='far fa-star fa-10x'></i>";
+                        echo "<i class='far fa-star fa-5x'></i>";
                     echo "</span>";
                     echo "<div class='star-modal'>";
                         echo "<div class='star-modal-content'>";
@@ -47,6 +51,10 @@
                             echo "Details: " . $details . "<br>";
                             echo "Date: " . $date . "<br><br>";
                             echo "<div class='star-modal-footer' style='background-color: " . $color . "'>";
+                                echo "<form method='POST' action='./delete-star.php'>";
+                                    echo "<input style='display: none' name='id' value='" . $id . "'>";
+                                    echo "<button type='submit'>Delete Star</button>";
+                                echo "</form>";
                             echo "</div>";
                         echo "</div>";
                     echo "</div>";
@@ -54,7 +62,12 @@
             }
         ?>
         </div>
-        <button id="modal-btn">Open</button>
+        <button id="modal-btn">New Star</button>
+        <?php 
+            if(isset($_GET["amount_error"])) {
+                echo "<strong style='color: red'>Amount must be between 1 and 5...</strong>";
+            }
+        ?>
         <div id="modal">
             <div id="modal-content">
                 <span id="close">&times;</span>
@@ -62,14 +75,14 @@
                     Add new star
                 </div>
                 <div id="modal-body">
-                    <form method="GET">
+                    <form method="POST" action="./new-star-submit.php">
                         <br><label>Subject: </label>
-                        <select id="subjet" name="subject-choices" class="input-box">
+                        <select id="subject" name="subject" class="input-box">
                             <option value="math">Math</option>
                             <option value="english">English</option>
                         </select><br><br>
                         <label>Color: </label>
-                        <select id="color" name="color-choices" class="input-box">
+                        <select id="color" name="color" class="input-box">
                             <option value="red">Red</option>
                             <option value="orange">Orange</option>
                             <option value="yellow">Yellow</option>
@@ -77,11 +90,11 @@
                             <option value="blue">Blue</option>
                             <option value="indigo">Indigo</option>
                         </select><br><br>
-                        <label>Link: </label>
-                        <input type="url" class="input-box"><br><br>
                         <label>Details: </label><br>
-                        <textarea id="details" rows="4" cols="25" class="input-box">
+                        <textarea id="details" rows="4" cols="25" name="details" class="input-box">
                         </textarea><br><br>
+                        <label>Amount: </label>
+                        <input type="text" name="num" pattern="\d*" maxlength="1">
                         <button type="submit">Add Star</button>
                     </form>
                 </div>

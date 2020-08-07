@@ -1,10 +1,12 @@
 /* Star Modal Styling */
 #star-container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .star {
     margin: 20px;
+    flex: 1;
 }
 
 .star-modal {
