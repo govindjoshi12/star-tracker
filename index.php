@@ -29,7 +29,7 @@
                 die("Connection Failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT id, subject, color, details, date FROM stars";
+            $sql = "SELECT id, subject, color, details, timestamp FROM stars";
             $result = $conn->query($sql);
 
             while($row = $result->fetch_assoc()) {
@@ -38,7 +38,7 @@
                 $color = $row["color"];
                 $details = $row["details"];
                 
-                $date = strtotime($row["date"]);
+                $date = strtotime($row["timestamp"]);
                 $date = date('l jS, F Y, h:i:s A', $date);
 
                 echo "<div class='star'>";
