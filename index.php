@@ -8,7 +8,14 @@
         <div id="header">
             <span id="left-col"></span>
             <span id="middle-col">Janvi's Star Tracker</span>
-            <span id="right-col"><button id="modal-btn">New Star</button></span>
+            <span id="right-col">
+                <?php
+                    if(isset($_GET["incorrect_password"])) {
+                        echo "<strong style='color: white'>Wrong Password!</strong>";
+                    }
+                ?>
+                <button id="modal-btn">New Star</button>
+            </span>
         </div>
         <div id="star-container">
         <?php
@@ -96,7 +103,9 @@
                         <textarea id="details" rows="4" cols="25" name="details" class="input-box">
                         </textarea><br><br>
                         <label>Amount: </label>
-                        <input type="text" name="num" pattern="\d*" maxlength="1">
+                        <input type="text" name="num" pattern="\d*" maxlength="1" class="input-box"><br><br>
+                        <label>Password: </label>
+                        <input type="password" name="password" class="input-box"><br><br>
                         <button type="submit">Add Star</button>
                     </form>
                 </div>

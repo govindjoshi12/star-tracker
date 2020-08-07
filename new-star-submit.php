@@ -1,10 +1,16 @@
 <?php
     date_default_timezone_set("UTC");
     
-    $server = "localhost";
-    $user = "root";
-    $pass = "";
-    $db = "star-tracker";
+    $password = $_POST["password"];
+    if($password != "noneOfYourBusiness420") {
+        header("Location: ./index.php?incorrect_password=true");
+        die();
+    }
+
+    $server = "us-cdbr-east-02.cleardb.com";
+    $user = "bf058329e1ede8";
+    $pass = "60b4d32e";
+    $db = "heroku_955067c7853840e";
 
     $conn = new mysqli($server, $user, $pass, $db);
 
