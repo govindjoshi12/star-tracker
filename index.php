@@ -5,6 +5,11 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
+        <div id="header">
+            <span id="left-col"></span>
+            <span id="middle-col">Janvi's Star Tracker</span>
+            <span id="right-col"><button id="modal-btn">New Star</button></span>
+        </div>
         <div id="star-container">
         <?php
             if(isset($_GET["deleted_star"])) {
@@ -15,7 +20,7 @@
             
             $server = "localhost";
             $user = "root";
-            $pass = "caffreyNeal$12";
+            $pass = "";
             $db = "star-tracker";
 
             $conn = new mysqli($server, $user, $pass, $db);
@@ -45,11 +50,8 @@
                             echo "<div class='star-modal-header' style='background-color: " . $color . ";'>";
                                 echo $subject;
                             echo "</div>";
-                            echo "ID: " . $id . "<br>";
-                            echo "Color: " . $color . "<br>";
-                            echo "Subject: " . $subject . "<br>";
-                            echo "Details: " . $details . "<br>";
-                            echo "Date: " . $date . "<br><br>";
+                            echo "Details: " . $details . "<br><br>";
+                            echo "Date: " . $date . "<br>";
                             echo "<div class='star-modal-footer' style='background-color: " . $color . "'>";
                                 echo "<form method='POST' action='./delete-star.php'>";
                                     echo "<input style='display: none' name='id' value='" . $id . "'>";
@@ -62,7 +64,6 @@
             }
         ?>
         </div>
-        <button id="modal-btn">New Star</button>
         <?php 
             if(isset($_GET["amount_error"])) {
                 echo "<strong style='color: red'>Amount must be between 1 and 5...</strong>";
@@ -89,6 +90,7 @@
                             <option value="green">Green</option>
                             <option value="blue">Blue</option>
                             <option value="indigo">Indigo</option>
+                            <option value="pink">Pink</option>
                         </select><br><br>
                         <label>Details: </label><br>
                         <textarea id="details" rows="4" cols="25" name="details" class="input-box">
