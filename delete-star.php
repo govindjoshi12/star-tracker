@@ -1,5 +1,11 @@
 <?php
     date_default_timezone_set("UTC");
+
+    $password = $_POST["password"];
+    if($password != "noneOfYourBusiness420") {
+        header("Location: ./index.php?incorrect_password=true");
+        die();
+    }
     
     $server = "us-cdbr-east-02.cleardb.com";
     $user = "bf058329e1ede8";

@@ -62,9 +62,10 @@
                             echo "</div>";
                             echo "Details: " . $details . "<br><br>";
                             echo "Date: " . $date . "<br>";
-                            echo "<div class='star-modal-footer' style='background-color: " . $color . "'>";
+                            echo "<div class='star-modal-footer' style='background-color: " . $color . "'><br>";
                                 echo "<form method='POST' action='./delete-star.php'>";
                                     echo "<input style='display: none' name='id' value='" . $id . "'>";
+                                    echo "<input class='input-box' name='password'>";
                                     echo "<button type='submit'>Delete Star</button>";
                                 echo "</form>";
                             echo "</div>";
