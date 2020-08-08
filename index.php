@@ -52,6 +52,9 @@
                     echo "<span style='color: " . $color . "' onclick='openStarModal(event);'>";
                         echo "<i class='far fa-star fa-5x'></i>";
                     echo "</span>";
+                    echo "<span class='star-subject' style='color: " . $color . "'>";
+                        echo $subject;
+                    echo "</span>";
                     echo "<div class='star-modal'>";
                         echo "<div class='star-modal-content'>";
                             echo "<div class='star-modal-header' style='background-color: " . $color . ";'>";
