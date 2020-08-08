@@ -36,7 +36,7 @@
                 die("Connection Failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT id, subject, color, details, timestamp FROM stars";
+            $sql = "SELECT id, subject, color, details, timestamp FROM stars ORDER BY timestamp DESC";
             $result = $conn->query($sql);
 
             while($row = $result->fetch_assoc()) {
