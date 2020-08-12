@@ -38,13 +38,22 @@
 
             $sql = "SELECT id, subject, color, details, timestamp FROM stars ORDER BY timestamp DESC";
             $result = $conn->query($sql);
-
+            
+            $math = 0;
+            $english = 0;
+            $total = 0;
             while($row = $result->fetch_assoc()) {
                 $id = $row["id"];
                 $subject = $row["subject"];
                 $color = $row["color"];
                 $details = $row["details"];
                 
+                $total++;
+                if($subject == "math")
+                    $math++;
+                else   
+                    $english++;
+
                 $date = strtotime($row["timestamp"]);
                 $date = date('l jS, F Y, h:i:s A', $date);
 
@@ -116,6 +125,12 @@
                 <div id="modal-footer">
                 </div>
             </div>
+        </div>
+        <div id="footer">
+            <?php 
+                echo "Math: " . $math . " | English: " . $english . " | ";
+                echo "<strong>Total: ". $total . "</strong>"
+            ?>
         </div>
     </body>
     <script src="./js/script.js"></script>

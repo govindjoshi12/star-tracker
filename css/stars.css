@@ -22,6 +22,14 @@
     text-align: right;
 }
 
+#footer {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.7);
+    background-color: rebeccapurple;
+    font-size: 32px;
+    color: white;
+    text-align: center;
+}
+
 #modal-btn {
     background-color: indigo; 
     border: none;
